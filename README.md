@@ -2,6 +2,12 @@
 
 This project is a simple data pipeline that fetches cryptocurrency Kline (candlestick) data from the Binance API, stores it in a local database, and processes it into a structured format. The pipeline is designed to fetch data in 1-minute intervals and is divided into three stages: Bronze (raw data), Silver (cleaned data), and Gold (aggregated/processed data).
 
+## Architecture
+
+The following diagram illustrates the architecture of the pipeline:
+
+![Architecture Diagram](https://github.com/siranyzz/Crypto-Kline-Data-Pipeline/blob/main/1725210178503.jpg)
+
 ## Project Structure
 
 - **createDB.py**: Creates the SQLite database and tables for storing Kline data.
