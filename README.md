@@ -18,6 +18,27 @@ Ensure you have Python installed. Then, install the required packages using pip:
 ```bash
 pip install pandas sqlite3 binance connector
 
-** Setup Binance API Keys
-You need to set up your Binance API keys to fetch data from the Binance API. Follow the https://www.binance.com/en-NG/support/faq/how-to-create-api-keys-on-binance-360002502072 to create your API keys.
-```
+### 2.Setup Binance API Keys
+You need to set up your Binance API keys to fetch data from the Binance API.Follow the instructions [here](https://www.binance.com/en-NG/support/faq/how-to-create-api-keys-on-binance-360002502072) to create your API keys.
+ to create your API keys.
+```json
+{
+    "api_key": "your_api_key_here",
+    "secret_key": "your_secret_key_here"
+}
+
+### 3. Create the Database
+Run the createDB.py script to create the SQLite database and tables:
+```bash
+python createDB.py
+
+### 4. Fetch and Process Kline Data
+```bash
+main.py
+
+This will:
+
+Fetch the Kline data for the current date from the Binance API and save it to the Bronze layer.
+Clean and process the data, and then insert it into the Silver layer.
+The gold layer is created by a view,which is already in the DB.
+
