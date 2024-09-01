@@ -22,7 +22,7 @@ The following diagram illustrates the architecture of the pipeline:
 Ensure you have Python installed. Then, install the required packages using pip:
 
 ```bash
-pip install pandas sqlite3 binance connector
+pip install pandas sqlite3 binance-connector
 ```
 ### 2.Setup Binance API Keys
 You need to set up your Binance API keys to fetch data from the Binance API.Follow the instructions [here](https://www.binance.com/en-NG/support/faq/how-to-create-api-keys-on-binance-360002502072) to create your API keys.
