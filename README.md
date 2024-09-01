@@ -59,3 +59,25 @@ If you want to fetch and process data for a specific date, you can modify the cu
 
 **Expand Data Handling**: Extend the pipeline to handle multiple cryptocurrency pairs and different time intervals.
 
+## Key Considerations
+### 1. Select a Suitable API and Describe Why It Was Chosen
+**API Chosen**: The Binance API was selected because it provides comprehensive and reliable access to real-time and historical cryptocurrency market data, including Kline (candlestick) data. This API is particularly suitable for this project due to its robustness, the variety of supported time intervals, and the extensive documentation available.
+### 2. Implement the Data Ingestion Process to Pull Daily Data and Ensure the Process Is Automated
+The data ingestion process is implemented in the **get_klines.py** script, which fetches Kline data for a specific symbol (e.g., BTC/USDT) and stores it in the Bronze layer as a CSV file. The ingestion process is designed to be automated by running the **main.py** script daily, either manually or via a scheduling tool like cron or Apache Airflow.
+### 3.Use Appropriate Data Storage and Data Formats
+**Data Storage**: The project uses a local SQLite database for storing processed (Silver layer) data and local filesystem storage for raw (Bronze layer) data.
+
+**Data Format**:
+
+   **Bronze Layer**: Data is stored as CSV files. CSV was chosen because it is human-readable, easy to work with in Python (via pandas), and sufficient for storing tabular data with a moderate volume.
+ 
+   **Silver Layer**: Data is stored in SQLite, a lightweight relational database, which is ideal for managing structured data with the need for querying and processing.
+   
+**Alternatives Considered**:
+
+**Parquet**: While Parquet is efficient for large-scale data storage, especially in columnar format, it was discarded for this project due to its overhead in setting up for smaller datasets and the simplicity needed in this pipeline.
+
+**JSON**: JSON could have been used for raw data storage due to its flexibility, but CSV was preferred for its simplicity and better integration with pandas for tabular data.
+
+**Cloud Storage**: Cloud storage solutions like AWS S3 were considered but not implemented due to the local scope of this project. This could be revisited for larger-scale deployments.
+ 
